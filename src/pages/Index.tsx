@@ -5,6 +5,7 @@ import ExpenseForm from "@/components/ExpenseForm";
 import ExpenseList from "@/components/ExpenseList";
 import ExpenseSummary from "@/components/ExpenseSummary";
 import ExpenseChart from "@/components/ExpenseChart";
+import Footer from "@/components/Footer";
 import { Expense, getCurrentMonthYear } from "@/lib/expense";
 import { useToast } from "@/components/ui/use-toast";
 
@@ -31,7 +32,7 @@ const Index = () => {
         console.error("Error loading expenses:", error);
         toast({
           title: "Error",
-          description: "Failed to load your expense data.",
+          description: "Error al cargar los datos de gastos.",
           variant: "destructive",
         });
       }
@@ -50,8 +51,8 @@ const Index = () => {
   const handleDeleteExpense = (id: string) => {
     setExpenses((prevExpenses) => prevExpenses.filter((expense) => expense.id !== id));
     toast({
-      title: "Expense deleted",
-      description: "The expense has been removed."
+      title: "Gasto eliminado",
+      description: "El gasto ha sido eliminado."
     });
   };
 
@@ -59,7 +60,7 @@ const Index = () => {
     <div className="min-h-screen bg-background py-8 px-4 sm:px-6 md:py-12 animate-fade-in">
       <div className="max-w-7xl mx-auto">
         <header className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-2">Monthly Expenses</h1>
+          <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-2">Gastos Mensuales</h1>
           <p className="text-muted-foreground text-lg">{currentMonthYear}</p>
         </header>
 
@@ -78,6 +79,8 @@ const Index = () => {
         <div className="mt-8">
           <ExpenseList expenses={expenses} onDeleteExpense={handleDeleteExpense} />
         </div>
+        
+        <Footer />
       </div>
     </div>
   );

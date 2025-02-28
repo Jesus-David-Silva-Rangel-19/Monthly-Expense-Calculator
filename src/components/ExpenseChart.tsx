@@ -35,10 +35,10 @@ const ExpenseChart: React.FC<ExpenseChartProps> = ({ expenses }) => {
     return (
       <Card className="w-full animate-fade-in">
         <CardHeader>
-          <CardTitle className="text-2xl">Expense Breakdown</CardTitle>
+          <CardTitle className="text-2xl">Desglose de Gastos</CardTitle>
         </CardHeader>
         <CardContent className="h-[300px] flex items-center justify-center">
-          <p className="text-muted-foreground">Add expenses to see your spending breakdown</p>
+          <p className="text-muted-foreground">Añade gastos para ver tu desglose de gastos</p>
         </CardContent>
       </Card>
     );
@@ -48,7 +48,7 @@ const ExpenseChart: React.FC<ExpenseChartProps> = ({ expenses }) => {
     if (active && payload && payload.length) {
       return (
         <div className="bg-background border rounded-md shadow-sm p-2 text-sm">
-          <p className="font-medium">{`${payload[0].name}: $${payload[0].value.toFixed(2)}`}</p>
+          <p className="font-medium">{`${payload[0].name}: ${payload[0].value.toFixed(2)}€`}</p>
         </div>
       );
     }
@@ -58,7 +58,7 @@ const ExpenseChart: React.FC<ExpenseChartProps> = ({ expenses }) => {
   return (
     <Card className="w-full animate-fade-in">
       <CardHeader>
-        <CardTitle className="text-2xl">Expense Breakdown</CardTitle>
+        <CardTitle className="text-2xl">Desglose de Gastos</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="h-[300px] w-full">

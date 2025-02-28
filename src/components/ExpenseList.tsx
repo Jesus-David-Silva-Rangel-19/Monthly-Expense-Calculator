@@ -18,11 +18,11 @@ const ExpenseList: React.FC<ExpenseListProps> = ({ expenses, onDeleteExpense }) 
     return (
       <Card className="w-full animate-fade-in">
         <CardHeader>
-          <CardTitle className="text-2xl">Expenses</CardTitle>
+          <CardTitle className="text-2xl">Gastos</CardTitle>
         </CardHeader>
         <CardContent className="text-center py-8">
-          <p className="text-muted-foreground">No expenses for this month yet.</p>
-          <p className="text-muted-foreground mt-1">Add an expense to get started!</p>
+          <p className="text-muted-foreground">No hay gastos para este mes todavía.</p>
+          <p className="text-muted-foreground mt-1">¡Añade un gasto para empezar!</p>
         </CardContent>
       </Card>
     );
@@ -31,7 +31,7 @@ const ExpenseList: React.FC<ExpenseListProps> = ({ expenses, onDeleteExpense }) 
   return (
     <Card className="w-full animate-fade-in">
       <CardHeader>
-        <CardTitle className="text-2xl">Expenses</CardTitle>
+        <CardTitle className="text-2xl">Gastos</CardTitle>
       </CardHeader>
       <CardContent>
         <ScrollArea className="max-h-[350px] overflow-y-auto pr-4">
@@ -50,7 +50,7 @@ const ExpenseList: React.FC<ExpenseListProps> = ({ expenses, onDeleteExpense }) 
                       </Badge>
                     </div>
                     <div className="text-sm text-muted-foreground">
-                      {new Date(expense.date).toLocaleDateString()}
+                      {new Date(expense.date).toLocaleDateString('es-ES')}
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
@@ -62,7 +62,7 @@ const ExpenseList: React.FC<ExpenseListProps> = ({ expenses, onDeleteExpense }) 
                       onClick={() => onDeleteExpense(expense.id)}
                     >
                       <Trash2 className="h-4 w-4" />
-                      <span className="sr-only">Delete</span>
+                      <span className="sr-only">Eliminar</span>
                     </Button>
                   </div>
                 </div>

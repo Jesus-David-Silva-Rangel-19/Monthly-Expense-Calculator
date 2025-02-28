@@ -14,17 +14,17 @@ const ExpenseSummary: React.FC<ExpenseSummaryProps> = ({ expenses }) => {
   return (
     <Card className="w-full animate-fade-in">
       <CardHeader>
-        <CardTitle className="text-2xl">Summary</CardTitle>
+        <CardTitle className="text-2xl">Resumen</CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
         <div className="flex flex-col items-center justify-center py-4">
-          <p className="text-sm font-medium text-muted-foreground">Total Expenses</p>
+          <p className="text-sm font-medium text-muted-foreground">Total de Gastos</p>
           <p className="text-4xl font-bold text-foreground mt-1">{formatCurrency(totalExpenses)}</p>
         </div>
 
         {expenses.length > 0 && (
           <div className="space-y-4">
-            <h3 className="font-semibold text-base">Top Categories</h3>
+            <h3 className="font-semibold text-base">Categorías Principales</h3>
             <div className="space-y-3">
               {topCategories.map(([category, amount]) => (
                 <div key={category} className="flex items-center justify-between">
@@ -47,8 +47,8 @@ const ExpenseSummary: React.FC<ExpenseSummaryProps> = ({ expenses }) => {
         <div className="rounded-md bg-muted p-4 text-center text-sm">
           <p className="text-muted-foreground">
             {expenses.length > 0
-              ? `You've added ${expenses.length} expense${expenses.length === 1 ? "" : "s"} this month.`
-              : "Add your first expense to see your spending patterns."}
+              ? `Has añadido ${expenses.length} gasto${expenses.length === 1 ? "" : "s"} este mes.`
+              : "Añade tu primer gasto para ver tus patrones de gasto."}
           </p>
         </div>
       </CardContent>

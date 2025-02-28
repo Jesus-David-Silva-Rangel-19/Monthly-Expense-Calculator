@@ -29,14 +29,25 @@ export interface Expense {
 }
 
 export function formatCurrency(amount: number): string {
-  return new Intl.NumberFormat('en-US', {
+  return new Intl.NumberFormat('es-ES', {
     style: 'currency',
-    currency: 'USD',
+    currency: 'EUR',
   }).format(amount);
 }
 
 export function getCategoryLabel(category: Category): string {
-  return category.charAt(0).toUpperCase() + category.slice(1);
+  const categoryLabels: Record<Category, string> = {
+    'food': 'Alimentación',
+    'transportation': 'Transporte',
+    'housing': 'Vivienda',
+    'utilities': 'Servicios',
+    'entertainment': 'Entretenimiento',
+    'healthcare': 'Salud',
+    'education': 'Educación',
+    'other': 'Otros'
+  };
+  
+  return categoryLabels[category] || category.charAt(0).toUpperCase() + category.slice(1);
 }
 
 export function generateId(): string {
@@ -83,8 +94,8 @@ export function getTopExpenseCategories(expenses: Expense[], limit: number = 3):
 
 export function getMonthName(monthIndex: number): string {
   const months = [
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'
+    'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+    'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
   ];
   return months[monthIndex];
 }
